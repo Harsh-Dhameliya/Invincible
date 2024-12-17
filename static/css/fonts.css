@@ -1,0 +1,36 @@
+@font-face {
+    font-family: karla-regular;
+    src: url(../fonts/Karla/static/Karla-Regular.ttf);
+}
+@font-face {
+    font-family: elm-regular;
+    src: url(../fonts/ElMessiri/static/ElMessiri-Regular.ttf);
+} 
+@font-face {
+    font-family: logo-font;
+    src: url(../fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf);
+}
+@font-face {
+    font-family: roboto-regular;
+    src: url(../fonts/Fira_Sans/FiraSans-Regular.ttf);
+}
+.karla-regular
+{
+    font-family: karla-regular;
+}
+.elm-regular
+{
+    font-family: elm-regular;
+}
+.logo-font
+{
+    font-family:logo-font;
+}
+.roboto-regular
+{
+    font-family: roboto-regular;
+}
+.font-size
+{
+    font-size: 45px;
+}

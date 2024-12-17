@@ -1,0 +1,120 @@
+.theme {
+    color: #000000b0;
+}
+
+.high-events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.high-events-heading
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.high-events-heading h2
+{
+    margin-bottom: 0px;
+}
+.high-events-heading p {
+    color: #535353a7;
+}
+
+.high-cards {
+    height: 485px;
+    width: 95%;
+    display: flex;
+    gap: 10px;
+}
+
+.full-card {
+
+    width: 35%;
+    height: 100%;
+    /* position: relative; */
+}
+.card-liner
+{
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.46054427630427175) 52%, rgba(0,0,0,0) 91%);;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    /* background-color: transparent; */
+}
+.card-body
+{
+    z-index: 3;
+
+}
+.card-body b {
+    font-size: 2rem;
+    font-weight: normal;
+    /* background: rgb(0,0,0); */
+}
+
+.card-body div {
+    /* height: 100%; */
+    display: flex;
+    /* flex-direction: column; */
+    align-items: baseline;
+    justify-content: end;
+    gap: 10px;
+    padding-right: 10px;
+
+    /* position: fixed;
+    left: 50%;
+    bottom: 10px; */
+}
+.card-body p 
+{
+    text-align: end;
+    padding: 0px 10px 0px 0px;
+    color: #dedede;
+}
+.half-card {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.half-card .two-card {
+    display: flex;
+    height: 50%;
+    gap: 10px;
+
+}
+
+.half-card .two-card .first-card,
+.second-card {
+    width: 50%;
+}
+
+.single-card {
+    height: 50%;
+}
+
+.cards {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    
+    /* backdrop-filter: ; */
+
+}
+
+
+.cards:hover {
+    /* background-image: ; */
+
+    cursor: pointer;
+}
