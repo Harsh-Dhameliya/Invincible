@@ -234,7 +234,7 @@ main{
 }
 footer
 {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     color: #e1e1e1;
     background-color: #1c1c1c;
     padding-bottom: 1px;
