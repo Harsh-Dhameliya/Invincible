@@ -1,9 +1,9 @@
 *
 {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-    color: white;
+    color: rgb(246, 242, 242);
     transition: all 0.5s 0s ease;
     
 } 

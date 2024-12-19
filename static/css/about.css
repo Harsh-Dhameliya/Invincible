@@ -1,0 +1,47 @@
+.about-main
+{
+    margin-top: 500px;
+}
+.about-heading
+{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    
+}
+
+
+.heading h2
+{
+    color:#000000b0;
+    padding-left: 35%;
+   
+}
+
+.heading p
+{
+    margin-top: -10px;
+    color: #3b3a3aa7;
+    font-size: 1.5rem;
+    
+}
+.about-description
+{
+    margin-top: 10px;
+}
+.desc
+{
+    margin-top: 30px;
+}
+
+.desc h2
+{
+    color:#000000b0;
+}
+.desc p
+{
+    margin-top: -10px;
+    color: #504f4fa7;
+}
