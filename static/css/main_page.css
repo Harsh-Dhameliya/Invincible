@@ -1,5 +1,5 @@
 .theme {
-    color: #000000b0;
+    color: #1e1c1cd6;
 }
 
 .high-events {
@@ -8,16 +8,17 @@
     align-items: center;
     /* justify-content: center; */
 }
-.high-events-heading
-{
+
+.high-events-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.high-events-heading h2
-{
+
+.high-events-heading h2 {
     margin-bottom: 0px;
 }
+
 .high-events-heading p {
     color: #535353a7;
 }
@@ -30,25 +31,27 @@
 }
 
 .full-card {
-
     width: 35%;
     height: 100%;
     /* position: relative; */
 }
-.card-liner
-{
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.46054427630427175) 52%, rgba(0,0,0,0) 91%);;
+
+.card-liner {
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.46054427630427175) 52%,
+            rgba(0, 0, 0, 0) 91%);
     height: 50%;
     width: 100%;
     position: absolute;
     z-index: 1;
     /* background-color: transparent; */
 }
-.card-body
-{
-    z-index: 3;
 
+.card-body {
+    z-index: 3;
 }
+
 .card-body b {
     font-size: 2rem;
     font-weight: normal;
@@ -68,12 +71,13 @@
     left: 50%;
     bottom: 10px; */
 }
-.card-body p 
-{
+
+.card-body p {
     text-align: end;
     padding: 0px 10px 0px 0px;
     color: #dedede;
 }
+
 .half-card {
     width: 65%;
     display: flex;
@@ -85,7 +89,6 @@
     display: flex;
     height: 50%;
     gap: 10px;
-
 }
 
 .half-card .two-card .first-card,
@@ -107,19 +110,18 @@
     display: flex;
     align-items: end;
     justify-content: end;
-    
-    /* backdrop-filter: ; */
 
+    /* backdrop-filter: ; */
 }
+
 .cards:hover {
     cursor: pointer;
 }
 
-.states
-{
+.states {
     width: 100%;
     height: 585px;
-    background-image: url("../images/gj-saputara.jpg");
+    background-image: url("../images/gj-vav.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -127,8 +129,8 @@
     margin-top: 20px;
     overflow: hidden;
 }
-.bg-drop
-{
+
+.bg-drop {
     position: absolute;
     height: 150px;
     width: 100%;
@@ -136,8 +138,8 @@
     background-color: black;
     z-index: 4;
 }
-.s-card
-{
+
+.s-card {
     width: 100%;
     border-right: solid 1px rgb(255, 255, 255);
     position: relative;
@@ -145,21 +147,112 @@
     flex-direction: column;
     align-items: center;
 }
-.s-card:hover .bg-drop
-{
-    transform: translateY(0px);
 
+.s-card:hover .bg-drop {
+    transform: translateY(0px);
 }
-.s-card-body{
+
+.s-card-body {
     margin-top: 30px;
     position: absolute;
     text-align: center;
     z-index: 5;
     /* background-color: aqua; */
 }
-.s-card-body .s-contant-name
-{
+
+.s-card-body .s-contant-name {
     margin-top: -5px;
     font-size: 1rem;
-    text-align: center; 
+    text-align: center;
+}
+
+.service {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 40px;
+    gap: 40px;
+    padding: 30px;
+    /* color: black !important; */
+}
+
+.text-contant {
+    width: 50%;
+}
+
+.text-contant h4 {
+    margin: 0px;
+    font-size: 22px;
+}
+
+.service-heading {
+    color: #191919d6;
+}
+
+.service-heading h3 {
+    /* color: #535353a7;
+     */
+    font-weight: 400;
+}
+
+.service-heading p {
+    color: #3c3c3cd6;
+}
+
+.objective {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 20px;
+}
+
+.objective i {
+    color: white;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    /* padding: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.service-objective {
+    display: flex;
+    padding-top: 15px;
+    flex-direction: column;
+    align-content: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.obj-description p {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.service-video {
+    width: 50%;
+    /* border: solid 1px rgb(65, 62, 62); */
+    /* border-radius: 20px; */
+}
+
+.service-video video {
+    height: 100%;
+    width: 100%;
+    border-radius: 14px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.514));
+}
+.fades
+{
+    animation: fade 0.5s ease 0s;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
