@@ -1,0 +1,87 @@
+.back-button svg {
+  width: 25px;
+}
+.heading {
+  width: 100%;
+  height: 300px;
+  background: url(../images/uttrakhand-1.jpg), #51575c;
+  /* backface-visibility: hidden; */
+
+  backdrop-filter: blur(5px);
+  background-size: cover;
+  color: white;
+}
+.logo a {
+  text-decoration: none;
+  color: white;
+  filter: drop-shadow(2px 4px 6px black);
+  padding: 5px;
+  font-size: 55px;
+  background: transparent;
+  background-size: cover;
+  /* background-clip:content-box; */
+}
+
+.title {
+  font-size: 35px;
+  padding-left: 10px;
+  /* padding-top: 10px; */
+}
+.pakage-name {
+  font-size: 25px;
+}
+main {
+  color: black;
+}
+.person {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.theme-control:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.25rem rgb(108 117 125 / 36%);
+}
+.t-c a:hover {
+  color: #2c2e30;
+}
+.t-c input:checked {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-submit {
+  background-color: #6c757d;
+  color: white;
+  width: 100px;
+  height: 50px;
+  margin: 0px auto;
+}
+.btn-submit:hover {
+  background-color: #5e666d;
+}
+.persons {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 40px;
+}
+.person-info-outer {
+  width: 400px;
+}
+
+/* .is-invalid:focus
+{
+    border-color: #6c757d !important;
+    box-shadow: 0 0 0 .25rem rgb(108 117 125 / 36%) !important;
+} */
+@media (max-width: 480px) {
+  .person {
+    width: 385px;
+  }
+  .tc {
+    font-size: 14px;
+  }
+}

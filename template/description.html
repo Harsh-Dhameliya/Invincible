@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Description</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/fonts.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <!-- <link rel="stylesheet" href="../static/css/main_page.css"> -->
+    <link rel="stylesheet" href="../static/css/description.css">
+    <link rel="stylesheet" href="../static/css/mediaqury.css">
+
+</head>
+
+<body>
+    {% if messages %}
+    <div class="d-flex flex-column  w-100 position-absolute  p-3 z-3 bottom-0 start-0 ">
+        {% for message in messages %}
+        <div class="toast align-items-center d-block position-sticky" role="alert" aria-live="assertive"
+            aria-atomic="true" id="toast">
+            <div class="d-flex">
+                <div class="toast-body text-black">
+                    {{ message }}
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+                    onclick="handleToast()"></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <!-- <div class="container-xxls"> -->
+    <section class="landing-page ">
+        <!-- <div class="slider"> -->
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner desc-carousel">
+                <div class="carousel-item active">
+                    <!-- <div style="background-image: url(../static/images/uttrakhand-1.jpg); width: 1200px; height: 300px;" ></div> -->
+                    <img src="../static/images/slide-1.webp" class="d-block w-100 h-100 ca-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/slide-2.jpg" class="d-block w-100 h-100 ca-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/slide-3.jpg" class="d-block w-100 h-100 ca-img" alt="...">
+                    </img>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <nav class="container-xxl">
+            <div class="logo elm-regular logo-font">
+                <a href="index.html">Invincible</a>
+            </div>
+            <div class="menu  karla-regular ">
+                <a href="/" class="active-m">HOME</a>
+                <a href="/about-us">ABOUT US</a>
+                <a href="/events">EVENTS</a>
+                <a href="/contact-us">CONTACT US</a>
+                <!-- <a href="">CONTACT US</a> -->
+            </div>
+            <div class="menu-add">
+                <i class="ri-menu-line" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"></i>
+                <!-- <button class="btn btn-primary">Toggle right offcanvas</button> -->
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <div class="offcanvaslogo elm-regular logo-font">
+                            <a href="index.html">Invincible</a>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-description">
+                        <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore the world
+                            in style and comfort. From hidden gems to iconic destinations, we tailor journeys to make
+                            every trip memorable."</p>
+                    </div>
+
+                    <div class="offcanvasmenu  karla-regular ">
+                        <h2  class="active-m"><a href="/">HOME</a></h2>
+                        <h2><a href="/about-us">ABOUT US</a></h2>
+                        <h2><a href="/events">EVENTS</a></h2>
+                        <h2><a href="/contact-us">CONTACT US</a></h2>
+        
+                        <!-- <a href="">CONTACT US</a> -->
+                    </div>
+                    <div class="offcanvas-buttons">
+                        <div class="offcanvas-sign-in">
+                            <a href="login.html">Sign-in</a>
+                        </div>
+                        <div class="offcanvas-sign-up">
+                            <a href="registration.html">Sign-up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+        <div class="first-page-contant container-xxl">  
+        </div>
+    </section>
+    <main class="desc-main container-xxl">
+        <div class="pack-service container-xxl">
+       
+            <div class="service-inner">
+                <div class="description">
+                    <h2 class="elm-regular">{{alldata.Package_name}}</h2>
+                    <hr>
+                    <h5>About</h5>
+                    <p>{{alldata.Package_description}}</p>
+                </div>
+                <div class="services">
+                    <div class="inner-ser">
+                        <h2 class="fa fa-rupee">{{alldata.Package_price}}/person</h2>
+                        <p>{{alldata.Total_days}} days/{{alldata.Total_nights}} night</p>
+                        <h5>Includes</h5>
+                        <div class="includes-services">
+                            <div class="include-items">
+                                <div class="item-symbol" ><i class="fa fa-hotel"></i></div>
+                                <div class="item-desc">
+                                    <h6>Hotel</h6>
+                                </div>
+                            </div>
+
+                            <div class="include-items">
+                                <div class="item-symbol"><i class="ri-restaurant-2-fill"></i></div>
+                                <div class="item-desc">
+                                    <h6>Food</h6>
+                                </div>
+                            </div>
+
+                            <div class="include-items">
+                                <div class="item-symbol"><i class=" fa fa-user"></i></div>
+                                <div class="item-desc">
+                                    <h6>Guide</h6>
+                                </div>
+                            </div>
+
+                            <div class="include-items">
+                                <div class="item-symbol"><i class=" fa fa-subway"></i></div>
+                                <div class="item-desc">
+                                    <h6>Transportation</h6>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="booking">
+                        <a href="booking.html">Book Now</a>
+                    </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="schedule container">
+            <div class="inner-schedule">
+                <div class="schedule-heading">
+                    <h3>Schedule</h3>
+                </div>
+                <div class="schedule-days">
+                    <div class="schedule-days-count">
+                        <div class="day-symbol"></div>
+                        <div class="day-description">
+                            <p><i>Day 1</i>• Jan 17, 2025</p>
+                        </div>
+                    </div>
+                    <div class="schedule-description">
+                        <h5>Departure from Ahmedabad</h5>
+                        <p>Overnight Journey towards Jammu Taw</p>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="schedule-days">
+                    <div class="schedule-days-count">
+                        <div class="day-symbol"></div>
+                        <div class="day-description">
+                            <p><i>Day 2</i>• Jan 17, 2025</p>
+                        </div>
+                    </div>
+                    <div class="schedule-description">
+                        <h5>Departure from Ahmedabad</h5>
+                        <p>Overnight Journey towards Jammu Taw</p>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="schedule-days">
+                    <div class="schedule-days-count">
+                        <div class="day-symbol"></div>
+                        <div class="day-description">
+                            <p><i>Day 3</i>• Jan 17, 2025</p>
+                        </div>
+                    </div>
+                    <div class="schedule-description">
+                        <h5>Departure from Ahmedabad</h5>
+                        <p>Overnight Journey towards Jammu Taw</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+
+        <section class="review-form d-flex flex-column justify-content-center align-items-center pt-5">
+            <div class="review-heading theme elm-regular text-center">
+                <h3 class="m-0">Review</h3>
+                <p class="tagline-theme">Your Voice, Our Growth: Honest Reviews Matter</p>
+            </div>
+            <form action="" class="w-50 d-flex flex-column gap-4" method="post">
+                ">
+                {% csrf_token %}
+                <div>
+                    <label for="r-name" class="text-black d-block pb-2">Name</label>
+                    <input type="text" id="r-name" class="form-control theme-control" name="r-name" maxlength="15" required>
+                </div>
+                <div class="">
+                    <label for="review" class="text-black pb-2">Review</label>
+                    <textarea name="review" id="review"  name="review" cols="" rows="5" maxlength="350" class="form-control" required></textarea>
+                </div>
+                <div class="">
+                    <input type="submit" class="form-control text-white " style="background-color: #6c757d;">
+                </div>
+            </form>
+
+        </section>
+    </main>
+    <section>
+        <footer>
+            <div class="container-xxl">
+                <div class="footer-top flex-column flex-md-row">
+                    <div class="footer-contant">
+                        <div class="logo elm-regular logo-font">
+                            <a href="index.html" class="font-size">Invincible</a>
+                        </div>
+                        <div class="intro">
+                            <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore
+                                the
+                                world
+                                in style and comfort. From hidden gems to iconic destinations, we tailor journeys to
+                                make
+                                every trip memorable."</p>
+                            <div class="footer-app-icon">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-instagram"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between links pt-3 w-100">
+                        <div class="footer-contant quick-links w-50 d-flex flex-column justify-content-sm-between align-items-md-center ">
+                            <div class="text-start ps-md-5">
+                            <h5 class="elm-regular text-start">Quick Links</h5>
+                            <ul class="text-start">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="packages.html">Events</a></li>
+                                <li><a href="contact.html">Contact US</a></li>
+                                <li><a href="">FAQ</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="footer-contant text-end w-50">
+                            <h5 class="elm-regular">Contact</h5>
+                            <div class="address pt-2">
+                                <h6 class="elm-regular">Ahmedabad</h6>
+                                <address>
+                                    101/02,Podium Floor,City Center,<br>
+                                    Near Swastik Cross Road,<br>
+                                    Navarangpura,<br>
+                                    Ahmedabad - 380009
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="hr-line">
+                    <hr>
+                </div>
+                <div class="bottom-line">
+                    <p>Copyright © 2024. All rights reserved to Invincible Tours and Travels</p>
+                </div>
+            </div>
+            </div>
+        </footer>
+    </section>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>  -->
+
+    <!--Owl carousel min.js-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/index.js"></script>
+</body>
+
+</html>

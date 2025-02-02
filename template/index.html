@@ -11,16 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="../static/css/fonts.css">
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/main_page.css">
     <link rel="stylesheet" href="../static/css/mediaqury.css">
-
 </head>
 
 <body>
+    {% if messages %}
+    <div class="d-flex flex-column  w-100 position-absolute  p-3 z-3 bottom-0 start-0 ">
+        {% for message in messages %}
+        <div class="toast align-items-center d-block position-sticky" role="alert" aria-live="assertive"
+            aria-atomic="true" id="toast">
+            <div class="d-flex">
+                <div class="toast-body text-black">
+                    {{ message }}
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+                    onclick="handleToast()"></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <!-- <div class="container-xxls"> -->
-    <section class="landing-page ">
+    <section class="landing-page">
         <!-- <div class="slider"> -->
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -47,17 +63,68 @@
         <!-- </div> -->
         <nav class="container-xxl">
             <div class="logo elm-regular logo-font">
-                <a href="index.html">Invincible</a>
+                <a href="/">Invincible</a>
             </div>
-            <div class="menu  karla-regular ">
-                <a href="index.html" class="active-m">HOME</a>
-                <a href="about.html">ABOUT US</a>
-                <a href="">EVENTS</a>
-                <a href="">CONTACT US</a>
+            <div class="menu  karla-regular d-lg-flex d-none">
+                <a href="/" class="active-m">HOME</a>
+                <a href="/about-us">ABOUT US</a>
+                <a href="/events">EVENTS</a>
+                <a href="/contact-us">CONTACT US</a>
+
                 <!-- <a href="">CONTACT US</a> -->
             </div>
             <div class="menu-add ">
-                <i class="ri-menu-line"></i>
+                <i class="ri-menu-line" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"></i>
+                <!-- <button class="btn btn-primary">Toggle right offcanvas</button> -->
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <div class="offcanvaslogo elm-regular logo-font d-flex align-items-center justify-content-between w-100">
+                            <a href="/">Invincible</a>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        
+                    </div>
+                    <div class="offcanvas-description ps-4 d-flex flex-column gap-2 justify-content-center ">
+                        <div class="offcanvasmenu d-flex flex-column gap-3  karla-regular ">
+                            <span class="d-flex d-lg-none flex-column gap-3 ">
+                            <span class="menu-contant d-flex align-items-center gap-4">
+                                <i class="uil uil-home text-black-50"></i></i><a href="/" class="text-black">Home</a>
+                            </span>
+                            <span class="menu-contant d-flex align-items-center gap-4">
+                                <i class="uil uil-building text-black-50"></i><a href="/" class="text-black ">About us</a>
+                            </span>
+                            <span class="menu-contant d-flex align-items-center gap-4">
+                                <i class="uil uil-mountains-sun text-black-50"></i><a href="/" class="text-black">Events</a>
+                            </span>
+                            <span class="menu-contant d-flex align-items-center gap-4">
+                                <i class="uil uil-phone text-black-50"></i><a href="/" class="text-black">Conatct us</a>
+                            </span>
+                            </span>
+                            <!-- <a href="">CONTACT US</a> -->
+                            <span class="menu-contant d-flex align-items-center gap-4">
+                                {% if 'customer_id' in request.session %}  
+                                <i class="uil uil-power text-black-50"></i><a href="/log-out" class="">Log-out</a>
+                                {% else %} 
+                                <i class="uil uil-user text-black-50"></i><a href="/log-in">log-in</a>
+                                {% endif %}
+                            </span>
+                            <span class="menu-contant d-flex align-items-center gap-4 ">
+                            {% if 'customer_id' not in request.session %}  
+                               <i class="uil uil-document-layout-left text-black-50"></i><a href="/registration">Registration
+                                </a>
+                            {% endif %}
+                                
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="offcanvas-footer text-black">
+                        Conatct
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="first-page-contant container-xxl">
@@ -68,7 +135,7 @@
                     <div class="col-12">Majestic India </div>
                     <div class="col-12">Landscape Now</div>
                 </div>
-                <div class="gs-btn"><a href="">GET STARTED<i class="bi bi-arrow-right"></i></a></div>
+                <div class="gs-btn"><a href="/events">GET STARTED<i class="bi bi-arrow-right"></i></a></div>
             </article>
             <article class="app-navigation">
                 <div class="apps-icon">
@@ -86,8 +153,8 @@
         <section class="container-lg">
             <div class="high-events">
                 <div class="high-events-heading">
-                    <h2 class="theme roboto-regular">Highlighted Events</h2>
-                    <p>Recommended camps by our Instructors</p>
+                    <h2 class="theme elm-regular">Highlighted Events</h2>
+                    <p>Recommended Tours by our Instructors</p>
                 </div>
                 <div class="high-cards">
                     <div class="full-card cards" style='background-image: url("../static/images/Leh\ Ladakh.jpeg");'>
@@ -142,7 +209,7 @@
         <section class="service container-lg">
             <div class="text-contant">
                 <div class="service-heading ">
-                    <h3 class="elm-regular">Experience The New Adventure</h3>
+                    <h3 class="elm-regular heading">Experience The New Adventure</h3>
                     <p>Experience the new adventure as you step beyond the ordinary! Discover breathtaking destinations,
                         embrace thrilling activities, and create unforgettable memories. Every journey is a chance to
                         explore, dream, and live life to the fullest</p>
@@ -180,13 +247,57 @@
             </div>
             <div class="service-video" id="service-video">
                 <video autoplay loop muted>
-                    <source src="../static/Video/Invincible - Made with Clipchamp.mp4" type="video/mp4" />
+                    <source src="../static/Video/Invincible.mp4" type="video/mp4" />
                 </video>
             </div>
         </section>
+        <section class="best-pkgs container-lg">
+            <div class="pkg-text">
+                <h3 class="heading elm-regular">Our Best Tour Pakages</h3>
+            </div>
+            <div class="pkg-container">
+                <a href="packages.html"><img src="../static/images/card-01.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-02.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-03.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-04.jpg" alt=""></a>
+            </div>
+            <div class="pkg-container">
+                <a href=""><img src="../static/images/card-05.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-06.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-07.jpg" alt=""></a>
+                <a href=""><img src="../static/images/card-08.jpg" alt=""></a>
+            </div>
+        </section>
+
+
+        <section class="review-section container-xxl">
+            <div class="review-heading theme elm-regular text-center">
+                <h3 class="m-0">Review</h3>
+                <p class="tagline-theme">Your Voice, Our Growth: Honest Reviews Matter</p>
+            </div>
+            <div class="review-display ">
+                <div class="review-wrapper">
+                    <div class="review-container owl-carousel owl-theme">
+                        {% for review in allreview %}
+                        <div class="review-card">
+                            <div class="r-review tagline-theme text-start">
+                                {{review.review}}
+                            </div>
+                            <div class="r-name theme text-end">
+                                <h5>{{review.name}}</h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <section class="states-outer">
             <div class="states">
-                <div class="s-card fades" id="saputara" onmouseover="change_image('saputara')">
+                <div class="s-card" id="saputara" onmouseover="change_image('saputara')">
                     <div class="bg-drop"></div>
                     <div class="s-card-body">
                         <p class="s-card-contant">visit</p>
@@ -224,49 +335,59 @@
             </div>
         </section>
 
+
+
     </main>
     <section>
-        <footer class="container-xxl">
-            <div class="footer-top ">
-                <div class="footer-contant">
-                    <div class="logo elm-regular logo-font">
-                        <a href="index.html" class="font-size">Invincible</a>
+        <footer>
+            <div class="container-xxl">
+                <div class="footer-top flex-column flex-md-row">
+                    <div class="footer-contant">
+                        <div class="logo elm-regular logo-font">
+                            <a href="/" class="font-size">Invincible</a>
+                        </div>
+                        <div class="intro">
+                            <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore
+                                the
+                                world
+                                in style and comfort. From hidden gems to iconic destinations, we tailor journeys to
+                                make
+                                every trip memorable."</p>
+                            <div class="footer-app-icon">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-instagram"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="intro">
-                        <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore the world
-                            in style and comfort. From hidden gems to iconic destinations, we tailor journeys to make
-                            every trip memorable."</p>
-                        <div class="footer-app-icon">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-instagram"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-youtube-play"></i></a>
+                    <div class="d-flex justify-content-between links pt-3 w-100">
+                        <div
+                            class="footer-contant quick-links w-50 d-flex flex-column justify-content-sm-between align-items-md-center ">
+                            <div class="text-start ps-md-5">
+                                <h5 class="elm-regular text-start">Quick Links</h5>
+                                <ul class="text-start">
+                                    <li><a href="/about-us">About Us</a></li>
+                                    <li><a href="/events">Events</a></li>
+                                    <li><a href="/contact-us">Contact US</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-contant text-end w-50">
+                            <h5 class="elm-regular">Contact</h5>
+                            <div class="address pt-2">
+                                <h6 class="elm-regular">Ahmedabad</h6>
+                                <address>
+                                    101/02,Podium Floor,City Center,<br>
+                                    Near Swastik Cross Road,<br>
+                                    Navarangpura,<br>
+                                    Ahmedabad - 380009
+                                </address>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="footer-contant quick-links">
-                    <h5>Quick Links</h5>
-                    <ul>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Tours</a></li>
-                        <li><a href="">Contact US</a></li>
-                        <li><a href="">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contant contact">
-                    <h5>Contact</h5>
-                    <div class="address">
-                        <h6>Ahmedabad</h6>
-                        <address>
-                            101/02,Podium Floor,City Center,<br>
-                            Near Swastik Cross Road,<br>
-                            Navarangpura,<br>
-                            Ahmedabad - 380009
-                        </address>
-                    </div>
-                </div>
-
-
 
             </div>
 
@@ -278,12 +399,47 @@
                     <p>Copyright © 2024. All rights reserved to Invincible Tours and Travels</p>
                 </div>
             </div>
+            </div>
         </footer>
     </section>
 
+    <script>
+        let idleTime = 0;
+        let maxIdleTime = 600;  // 30 minutes (in seconds)
+    
+        function resetIdleTime() {
+            idleTime = 0;  // Reset counter when the user interacts
+        }
+    
+        function checkIdleTime() {
+            idleTime++;
+            if (idleTime >= maxIdleTime) {
+                window.location.href = "{% url 'logout' %}";  // Redirect to logout
+            }
+        }
+    
+        // Reset idle time on keypress, mousemove, or click
+        document.addEventListener("mousemove", resetIdleTime);
+        document.addEventListener("keypress", resetIdleTime);
+        document.addEventListener("click", resetIdleTime);
+    
+        // Run check every second
+        setInterval(checkIdleTime, 1000);
+    </script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"
+        integrity="sha512-xAxjKW1J/R4TFytv43xvQ7jFTrJlBzsDOH/Aw0fFc2nvarQkE3d08lTicjzUsZJYDoHYDCpwsUUqOJXh34A1sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../static/js/bootstrap.js"></script>
     <script src="../static/js/index.js"></script>

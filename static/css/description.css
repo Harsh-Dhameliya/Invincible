@@ -1,0 +1,144 @@
+.desc-main {
+  /* margin-top: 50px; */
+  margin-bottom: 20px;
+}
+.desc-carousel
+{
+  height: 450px !important;
+}
+.first-page-contant {
+  display: flex;
+  justify-content: space-between;
+  height: calc(450px - 80px);
+}
+.service-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.ca-img
+{
+  transform: translate(0px ,-150px);
+}
+.description {
+  width: 65%;
+}
+.description h2,
+h5 {
+  color: rgb(17, 17, 17);
+}
+.description hr {
+  color: rgb(66, 64, 64);
+}
+.description p {
+  color: rgb(127, 124, 124);
+}
+
+.services {
+  width: 35%;
+  box-shadow: 0px 0px 7px 1px rgb(170, 169, 169);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.inner-ser {
+  padding: 20px;
+}
+.inner-ser p {
+  color: rgb(89, 88, 88);
+  padding-left: 10px;
+  font-size: 1.1rem;
+}
+.inner-ser h2,
+h3 {
+  color: black;
+  font-size: 2rem;
+}
+.includes-services {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10;
+}
+.include-items {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.item-desc {
+  color: rgb(66, 64, 64);
+  margin-top: 5px;
+}
+.item-symbol {
+  width: 10%;
+  text-align: center;
+}
+.item-symbol i {
+  font-size: 18px;
+  color: rgb(66, 64, 64);
+}
+.booking {
+  width: 150px;
+  height: 40px;
+  background-color: black;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.booking a {
+  color: rgb(247, 247, 247);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.schedule {
+  margin-top: 40px;
+}
+.schedule-heading h3 {
+  color: rgb(17, 17, 17);
+}
+.schedule-days-count {
+  /* margin-top: 10px; */
+  display: flex;
+  gap: 20px;
+}
+.day-symbol {
+  width: 7px;
+  height: 7px;
+  background-color: black;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.day-description {
+}
+.day-description p {
+  color: rgb(105, 105, 105);
+  margin-bottom: 0px;
+}
+.day-description p i {
+  color: rgb(40, 40, 40);
+}
+.schedule-description {
+  padding: 20px;
+  border-left: solid 2px rgb(17, 17, 17);
+  margin-left: 2px;
+}
+.schedule-description h5 {
+  color: rgb(17, 17, 17);
+}
+.schedule-description p {
+  color: rgb(105, 105, 105);
+}
+.schedule-description hr {
+  margin: 10px 0px 10px 0px;
+  width: 70%;
+  text-align: center;
+  color: rgb(95, 90, 90);
+}

@@ -12,7 +12,11 @@
 }
 @font-face {
     font-family: roboto-regular;
-    src: url(../fonts/Fira_Sans/FiraSans-Regular.ttf);
+    src: url(../fonts/Montserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Courgette-Regular;
+    src: url(../fonts/Courgette/Courgette-Regular.ttf);
 }
 .karla-regular
 {
@@ -33,4 +37,11 @@
 .font-size
 {
     font-size: 45px;
+}
+.text-theme
+{
+    color: #6c757d;
+}
+.Courgette-Regular{
+    font-family: Courgette-Regular;
 }

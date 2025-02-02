@@ -1,73 +1,251 @@
-@media (max-width : 1200px){
-   
-    .carousel-item 
-    {
-        width: 170%;
-    } 
-   
-   
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1400px;
+  }
 }
-@media (max-width : 800px){
-    .carousel-item 
-    {
-        width: 217%;
-    }
-    .menu
-    {
-        display: none;
-    }
-    
-    .footer-top
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-    }
-    .footer-contant
-    {
-        width: 100%;
-    }
-    .quick-links
-    {   margin-top: 20px;
-        text-align: center;
-        padding-left: 20px;
-    }
-   
-    .contact
-    {
-        margin-top: 30px;
-        padding-left: 20px;
-        text-align: center;
-    }
-    .address
-    {
-        margin-top: 0px;
-    }
-    
+
+@media (max-width: 1200px) {
+  .carousel-item {
+    width: 170%;
+  }
+  .high-events {
+    width: 100%;
+  }
 }
-@media (max-width : 600px){
-    .carousel-item 
-    {
-        width: 217%;
-    }
-    .high-cards
-    {
-        width: 150%;
-       
-    }
-    .full-card
-    {
-        display: none;
-    }
-    
-    .half-card .two-card
-    {
-        gap: 50px;
-        width: 100%;
-        margin-left: 10px;
-       
-    }
-   
+@media (max-width: 850px) {
+  .carousel-item {
+    width: 217%;
+  }
+  .offcanvasmenu
+  {
+    display: block;
+  }
+
+  /* .footer-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+ .footer-contant {
+    width: 100%;
+  } 
+  /* .quick-links {
+    margin-top: 20px;
+    text-align: center;
+    padding-left: 20px;
+  }
+
+  .contact {
+    margin-top: 30px;
+    padding-left: 20px;
+    text-align: center;
+  }
+  .address {
+    margin-top: 0px;
+  } */
+  .service
+  {
+    flex-direction: column;
+  }
+  .text-contant , .service-video
+  {
+    width: 100%;
+  }
+  .pkg-container img 
+  {
+    width: 160px;
+  }
+  .service-inner {
+  display: block;
+  }
+  .description {
+  width: 100%;
+  }
+  .services 
+  {
+    width: 70%;
+    margin: 0px auto;
+  }
+  .includes-services
+  {
+    justify-content: space-between;
+  }
+
+
 }
+@media (max-width: 600px) {
+  .carousel-item {
+    width: 217%;
+  }
+  .high-cards {
+    height: 100%;
+    flex-direction: column;
+  }
+  .full-card {
+    height: 200px;
+    width: 100%;
+  }
+  .half-card
+  {
+    width: 100%;
+  }
+
+  .two-card {
+    /* gap: 50px; */
+    flex-direction: column;
+    width: 100%;
+    /* margin-left: 10px; */
+  }
+   .first-card,
+  .second-card, .single-card {
+    height: 200px;
+    width: 100%;
+  }
+  .pkg-container img 
+  {
+    width: 100px;
+  }
+  .pkg-container a:nth-child(4){
+    display: none;
+  }
+  .states
+  {
+      flex-wrap: wrap;
+      
+  }
+  .s-card
+  {
+    width: 50%;
+    height: 33.33%;
+  }
+  .bg-drop
+  {
+    transform: translateY(-150px);
+  }
+
+  .includes-services
+  {
+    display: block;
+  }
+  .include-items
+  {
+    width: 100%;
+  }
+  
+}
+@media  (max-width: 480px){
+  .pkg-container img 
+  {
+    width: 7rem;
+  }
+  .tag-line 
+  {
+    font-size: 50px;
+  }
+  .carousel-item {
+    width: 100%;
+    height: 650px;
+  }
+  .carousel-item  img{
+    object-fit: cover;
+    margin: 0px 
+    auto;
+    padding: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* /* Default (Desktop First) Styles Already Present */
+
+/* Small devices (phones, less than 768px)
+@media (max-width: 767.98px) {
+    .high-events {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .high-cards {
+      flex-direction: column;
+      height: auto;
+      gap: 15px;
+    }
+  
+    .full-card,
+    .half-card .two-card .first-card,
+    .half-card .two-card .second-card,
+    .single-card {
+      width: 100%;
+      height: auto;
+    }
+  
+    .service {
+      flex-direction: column;
+    }
+  
+    .text-contant, 
+    .service-video {
+      width: 100%;
+    }
+  
+    .pkg-container img {
+      width: 100%;
+    }
+  
+    .states {
+      flex-wrap: wrap;
+      height: auto;
+    }
+  
+    .s-card {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .high-cards {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .full-card,
+    .half-card {
+      width: 100%;
+    }
+  
+    .pkg-container img {
+      width: 48%;
+    }
+  
+    .service {
+      gap: 20px;
+    }
+  
+    .text-contant, 
+    .service-video {
+      width: 50%;
+    }
+  }
+  
+  Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    .pkg-container img {
+      width: 23%;
+    }
+  }
+   */

@@ -1,0 +1,66 @@
+.back-button svg {
+  width: 25px;
+}
+.heading {
+  width: 100%;
+  height: 300px;
+  background: url(../images/uttrakhand-1.jpg), #51575c;
+  /* backface-visibility: hidden; */
+
+  backdrop-filter: blur(5px);
+  background-size: cover;
+  color: white;
+}
+.logo a {
+  text-decoration: none;
+  color: white;
+  filter: drop-shadow(2px 4px 6px black);
+  padding: 5px;
+  font-size: 55px;
+  background: transparent;
+  background-size: cover;
+  /* background-clip:content-box; */
+}
+
+.registration {
+  margin-top: 5px;
+}
+.registration p {
+  color: white;
+  font-size: 45px;
+}
+
+.regi-main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.regi-form {
+  width: 450px;
+  /* margin: 0px auto; */
+  /* border: solid 1px rgb(145, 141, 141);
+  border-radius: 10px; */
+  padding: 10px;
+}
+.form-control:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.25rem rgb(108 117 125 / 36%);
+}
+/* .regi-button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+} */
+.regi-button input {
+  width: 150px;
+  height: 40px;
+  background-color: #6c757d;
+  border-radius: 10px;
+  color: white;
+}
+#pass-error , #cpass-error
+{
+  font-size: 9px;
+}
+

@@ -17,9 +17,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import view
+from django.conf import settings
+from django.conf.urls.static import static
+
+admin.site.site_header = "Invincible Admin Panel" 
+admin.site.site_title = "Invincible Admin Portal"
+admin.site.index_title = "Invincible"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',view.Home),
+    path('',view.Home ,name="home"),
+    path('about-us/',view.AboutUs),
+    path('events/',view.Packages),
+    path('contact-us/',view.ContactUS),
+    path('faq/',view.Faq),
+    path('booking/',view.Booking),
+    path('description/<eslug>',view.Description),
+    path('forgot-password/',view.Forgotpass),
+    path('log-in/',view.Login,name="login"),
+    path('log-out/',view.Logout,name="logout"),
+    path('registration/',view.Registration , name="register"),
+    path('otp-verify/',view.OTP ,name="verify_otp"),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
