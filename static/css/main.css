@@ -111,6 +111,7 @@ nav {
 }
 .offcanvas {
   width: 300px !important;
+  height: 100vh;
   background-color: white;
 }
 .offcanvas-description {
@@ -151,6 +152,21 @@ nav {
   display: flex;
   gap: 50px;
 }
+.offcanvas-footer
+{
+  padding: 10px 16px;
+}
+.off-footer-hading
+{
+  font-size: 1.2rem;
+  color: hsl(208.24deg 7.3% 45.69%);
+  letter-spacing: 0.1rem;
+}
+.contact-1 i , .contact-2 i 
+{
+  font-size: 1.2rem;
+}
+
 .menu-contant a
 {
   color: black;

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>receipt</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <link rel="stylesheet" href="../static/css/receipt.css">
+    <link rel="stylesheet" href="../static/css/mediaqury.css">
+</head>
+
+<body>
+    <section
+        class="container-xxl mt-5 mb-5   d-flex flex-column justify-content-center align-items-center outer-container">
+        <div class="slip pb-2" id="slip">
+            <div class="slip-header pt-4 ps-4 pe-4 p-2 justify-content-between">
+                <div class="logo elm-regular logo-font">
+                    Invincible
+                </div>
+                <div class="slip-package-name d-flex align-items-center elm-regular">
+                    Himachal Pradesh Tour
+                </div>
+            </div>
+            <hr class="m-0">
+            <div class="slip-pacakge pt-4 ps-4 pe-4">
+                <div class="slip-pacakge-heading elm-regular">
+                    Package Details :
+                </div>
+                <div class="d-flex justify-content-between gap-5">
+                    <div class="slip-pacakge-details pt-3 d-flex flex-column gap-1 w-50">
+                        <div class="details d-flex ">
+                            <div class="w-40">Pacakge Name </div>
+                            <div class="w-60"><span>: </span>{{packages.Package_name}} </div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Pacakge Category </div>
+                            <div class="w-60"><span>: </span>{{packages.category}}</div>
+                        </div>
+
+
+                        <div class="details d-flex ">
+                            <div class="w-40">Hotel Name </div>
+                            <div class="w-60"><span>: </span>{{packages.Hotel_name}}</div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Guide Name </div>
+                            <div class="w-60"><span>: </span>{{packages.Guid_name}} </div>
+                        </div>
+
+                    </div>
+                    <div class="slip-pacakge-details pt-3 d-flex flex-column gap-1 w-50">
+                        <div class="details d-flex ">
+                            <div class="w-40">Package Price </div>
+                            <div class="w-60"><span>: </span> {{packages.Package_price}}(per person) </div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Package Duration </div>
+                            <div class="w-60"><span>: </span>{{packages.Total_days}} Day /{{packages.Total_nights}}
+                                Night</div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Transportation Type</div>
+                            <div class="w-60"><span>: </span>{{packages.Transportation_type}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slip-pacakge-heading elm-regular mt-4 ">
+                    Participant Details :
+                </div>
+                {% for data in receiptdata %}
+                <div class="elm-regular participent pt-3">Participant Id :{{data.id}}</div>
+                <div class="d-flex justify-content-between gap-5">
+                    <div class="slip-pacakge-details pt-1 d-flex flex-column gap-1 w-50">
+                        <div class="details d-flex ">
+                            <div class="w-40">Participant Name </div>
+                            <div class="w-60"><span>: </span>{{data.name}} </div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Mobile No.</div>
+                            <div class="w-60"><span>: </span>{{data.mobile_no}}</div>
+                        </div>
+                    </div>
+                    <div class="slip-pacakge-details pt-1 d-flex flex-column gap-1 w-50">
+                        <div class="details d-flex ">
+                            <div class="w-40">Gender </div>
+                            <div class="w-60"><span>: </span> {{data.gender}}</div>
+                        </div>
+                        <div class="details d-flex ">
+                            <div class="w-40">Birth Date </div>
+                            <div class="w-60"><span>: </span>{{data.birth_date}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <hr>
+                <div class="slip-pacakge-heading elm-regular mt-4 ">
+                    Payment Details :
+                </div>
+                <div class="payment d-flex justify-content-start">
+                    <div class="payment-heading w-33 elm-regular">
+                        <h5>Package Price</h5>
+                    </div>
+                    <div class="payment-heading w-33 elm-regular">
+                        <h5>Total Person</h5>
+                    </div>
+                    <div class="payment-heading w-33 elm-regular">
+                        <h5>Total Amount</h5>
+                    </div>
+                </div>
+                <div class="payment-values d-flex">
+                    <div class="payment-heading w-33">{{packages.Package_price}}</div>
+                    <div class="payment-heading w-33">{{total}}</div>
+                    <div class="payment-heading w-33">{{totalprice}}</div>
+                </div>
+            </div>
+        </div>
+        <form action="" method="post" class="mt-2">
+            {% csrf_token %}
+            <textarea name="f" id="html" rows="20" cols="20" class="form-control d-none"></textarea>
+            <button type="button" onclick="generatePDF()" class="btn btn-primary no-print">Save AS Pdf</button>
+        </form>
+    </section>
+    <script>
+        // addEventListener("DOMContentLoaded", () => {
+        //     html = document.getElementById("slip").innerHTML.toString()
+        //     input_html = document.getElementById("html")
+        //     console.log(html);
+
+        //     input_html.innerHTML = html
+        // })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="../static/js/receipt.js"></script>
+</body>
+
+</html>

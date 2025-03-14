@@ -3,52 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Name Validation</title>
-    <style>
-        .error {
-            color: red;
-            font-size: 0.9em;
-        }
-    </style>
+    <title>Generate Formatted PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    {% if messages %}
-    <div class="d-flex flex-column  w-100 position-absolute  p-3 z-3 bottom-0 start-0 ">
-        {% for message in messages %}
-        <div class="toast align-items-center d-block position-sticky" role="alert" aria-live="assertive"
-            aria-atomic="true" id="toast">
-            <div class="d-flex">
-                <div class="toast-body text-black">
-                    {{ message }}
-                </div>
-                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
-                    onclick="handleToast()"></button>
-            </div>
-        </div>
-        {% endfor %}
+
+    <div id="packageDetails">
+        <h1>Invisible</h1>
+        <h2>Himachal Pradesh Tour</h2>
+        <h3>Package Details</h3>
+        <p><strong>Package Name:</strong> Himachal Pradesh Tour</p>
+        <p><strong>Package Category:</strong> Himachal Pradesh</p>
+        <p><strong>Hotel Name:</strong> Uday Hotels</p>
+        <p><strong>Guide Name:</strong> Akashy Gupata</p>
+        <p><strong>Package Price:</strong> 599$ (per person)</p>
+        <p><strong>Package Duration:</strong> 1 Day / 2 Night</p>
+        <p><strong>Transportation Type:</strong> Train and Van</p>
+        
+        <h3>Participant Details</h3>
+        <table border="1">
+            <tr>
+                <th>Participant Name</th>
+                <th>Mobile No.</th>
+                <th>Participant ID</th>
+                <th>Birth Date</th>
+            </tr>
+            <tr>
+                <td>Harsh Dhameliya</td>
+                <td>9898989898</td>
+                <td>24-04-2024-45</td>
+                <td>23-03-2003</td>
+            </tr>
+            <tr>
+                <td>Harsh Dhameliya</td>
+                <td>9898989898</td>
+                <td>24-04-2024-45</td>
+                <td>23-03-2003</td>
+            </tr>
+            <tr>
+                <td>Harsh Dhameliya</td>
+                <td>9898989898</td>
+                <td>24-04-2024-45</td>
+                <td>23-03-2003</td>
+            </tr>
+        </table>
     </div>
-    {% endif %}
-    <form id="nameForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-        <span id="error" class="error"></span>
-        <br><br>
-        <button type="submit">Submit</button>
-    </form>
+
+    <button onclick="generatePDF()">Download PDF</button>
 
     <script>
-        document.getElementById("nameForm").addEventListener("submit", function (e) {
-            const firstNameInput = document.getElementById("firstName");
-            const errorSpan = document.getElementById("error");
-            const namePattern = /^[a-zA-Z]+$/;
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF("p", "mm", "a4");
 
-            if (!namePattern.test(firstNameInput.value)) {
-                e.preventDefault(); // Prevent form submission
-                errorSpan.textContent = "First name can only contain letters (a-z, A-Z).";
-            } else {
-                errorSpan.textContent = ""; // Clear error message
-            }
-        });
+            // Add Title
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(24);
+            doc.text("Invisible", 20, 20);
+
+            // Subtitle
+            doc.setFontSize(16);
+            doc.text("Himachal Pradesh Tour", 140, 20, { align: "right" });
+
+            // Package Details
+            doc.setFontSize(14);
+            doc.text("Package Details:", 20, 40);
+
+            doc.setFontSize(12);
+            const packageDetails = [
+                ["Package Name", "Himachal Pradesh Tour", "Package Price", "599$ (per person)"],
+                ["Package Category", "Himachal Pradesh", "Package Duration", "1 Day / 2 Night"],
+                ["Hotel Name", "Uday Hotels", "Transportation Type", "Train and Van"],
+                ["Guide Name", "Akashy Gupata", "", ""]
+            ];
+            doc.autoTable({
+                startY: 50,
+                head: [],
+                body: packageDetails,
+                theme: "plain",
+                styles: { fontSize: 10, cellPadding: 2 },
+            });
+
+            // Participant Details
+            doc.setFontSize(14);
+            doc.text("Participant Details:", 20, doc.lastAutoTable.finalY + 10);
+
+            const participantDetails = [
+                ["Participant Name", "Mobile No.", "Participant ID", "Birth Date"],
+                ["Harsh Dhameliya", "9898989898", "24-04-2024-45", "23-03-2003"],
+                ["Harsh Dhameliya", "9898989898", "24-04-2024-45", "23-03-2003"],
+                ["Harsh Dhameliya", "9898989898", "24-04-2024-45", "23-03-2003"]
+            ];
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 15,
+                head: [participantDetails[0]],
+                body: participantDetails.slice(1),
+                styles: { fontSize: 10, cellPadding: 2 },
+                headStyles: { fillColor: [41, 128, 185], textColor: [255, 255, 255] }, // Blue header
+            });
+
+            doc.save("Package_Details.pdf");
+        }
     </script>
+
 </body>
 </html>

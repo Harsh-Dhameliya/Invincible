@@ -61,11 +61,12 @@
         <div class="container-xl">
             <div class="pakage-info pt-5">
                 <div class="pakage-name">
-                    Spiti in the Snow
+                    {{packagedata.Package_name}}
                 </div>
                 <div class="pakage-location">
-                    <div class="locatiuon">Ahmedabad (Non-AC Sleeper Train)</div>
-                    <div class="date">Jan 24, 2025 to Feb 2, 2025 (10D/9N)</div>
+                    <div class="locatiuon">Ahmedabad ({{packagedata.Transportation_type}})</div>
+                    <div class="date">{{packagedata.start_date}} to {{packagedata.end_date}}
+                        ({{packagedata.Total_days}}D/{{packagedata.Total_nights}}N)</div>
                 </div>
             </div>
         </div>
@@ -73,9 +74,11 @@
         <div class="container-xl">
             <div class="person-details">
                 <div class="select-person">
-                    <div class="select-person-title text-black pb-3">Select Participents</div>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary border-end-0 btn-people" type="button" value="1"
+                    <form id="myForm" method="POST" onsubmit="return valiadate(this),getdata(this)">
+                        {% csrf_token %}
+                        <div class="select-person-title text-black pb-3">Enter Total Members:</div>
+                        <div class="input-group mb-3 w-25">
+                            <!-- <button class="btn btn-outline-secondary border-end-0 btn-people" type="button" value="1"
                             onclick="addperson(value)">1</button>
                         <button class="btn btn-outline-secondary border-end-0 btn-people" type="button" value="2"
                             onclick="addperson(value)">2</button>
@@ -86,83 +89,90 @@
                         <button class="btn btn-outline-secondary border-end-0 btn-people" type="button" value="5"
                             onclick="addperson(value)">5</button>
                         <button class="btn btn-outline-secondary btn-people" type="button" value="6"
-                            onclick="addperson(value)">6</button>
-                    </div>
-                </div>
-                <div class="person pb-5 flex-column align-items-start">
-                    <form id="myForm" class="" onsubmit="return valiadate(this)">
-                        <span id="person-info" class="persons">
-                            <div class="person-info-outer">
-                                <div class="person-title pb-1">
-                                    Participent 1
-                                </div>
-                                <div class="person-info d-flex flex-column gap-2">
-                                    <div class="d-flex gap-2">
-                                        <div class=" w-50">
-                                            <label for="">First Name</label>
-                                            <input type="text" class="form-control theme-control"
-                                                onkeyup="valiadate(this)" name="fname">
-                                        </div>
-                                        <div class=" w-50">
-                                            <label for="">Last Name</label>
-                                            <input type="text" class="form-control theme-control"
-                                                onkeyup="valiadate(this)" name="lname">
-                                        </div>
-                                    </div>
-                                    <div class="w-100">
-                                        <label for="">Mobile</label>
-                                        <input type="text" class="form-control theme-control" onkeyup="valiadate(this)"
-                                            name="mobile" maxlength="10">
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <div class="w-50">
-                                            <label for="">Birth Date</label>
-                                            <span id="birthDate"></span>
+                            onclick="addperson(value)">6</button> -->
+                            <input type="number" class="form-control theme-control" name="total"
+                                onkeyup="addperson(this.value)">
+                        </div>
 
-                                            <script>
-                                                let birthDate = document.getElementById("birthDate")
-                                                birthDate.innerHTML = `<input type="date" class="form-control theme-control" max="${new Date().toISOString().slice(0, 10)}" name="date" onchange="valiadate(this)" >`;
+                        <div class="person pb-5 flex-column align-items-start">
 
-                                            </script>
+                            <span id="person-info" class="persons">
+                                <div class="person-info-outer">
+                                    <div class="person-title pb-1">
+                                        Participent 1
+                                    </div>
+                                    <div class="person-info d-flex flex-column gap-2">
+                                        <div class="d-flex gap-2">
+                                            <div class=" w-50">
+                                                <label for="">First Name</label>
+                                                <input type="text" class="form-control theme-control"
+                                                    onkeyup="valiadate(this)" name="fname">
+                                            </div>
+                                            <div class=" w-50">
+                                                <label for="">Last Name</label>
+                                                <input type="text" class="form-control theme-control"
+                                                    onkeyup="valiadate(this)" name="lname">
+                                            </div>
                                         </div>
-                                        <div class=" w-50">
-                                            <label for="">Gender</label>
-                                            <select class="form-select theme-control"
-                                                aria-label="Default select example" name="gender"
-                                                onchange="valiadate(this)">
-                                                <option selected disabled="disabled" value="Select Gender">Select Gender
-                                                </option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                            </select>
+                                        <div class="w-100">
+                                            <label for="">Mobile</label>
+                                            <input type="text" class="form-control theme-control"
+                                                onkeyup="valiadate(this)" name="mobile" maxlength="10">
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <div class="w-50">
+                                                <label for="">Birth Date</label>
+                                                <span id="birthDate"></span>
+
+                                                <script>
+                                                    let birthDate = document.getElementById("birthDate")
+                                                    birthDate.innerHTML = `<input type="date" class="form-control theme-control" max="${new Date().toISOString().slice(0, 10)}" name="date" onchange="valiadate(this)" >`;
+
+                                                </script>
+                                            </div>
+                                            <div class=" w-50">
+                                                <label for="">Gender</label>
+                                                <select class="form-select theme-control"
+                                                    aria-label="Default select example" name="gender"
+                                                    onchange="valiadate(this)">
+                                                    <option selected disabled="disabled" value="Select Gender">Select
+                                                        Gender
+                                                    </option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
+                                    <hr style="border: 1px solid black; margin: 2rem 0px 2rem 0px ;">
                                 </div>
-                                <hr style="border: 1px solid black; margin: 2rem 0px 2rem 0px ;">
+                            </span>
+
+                            <div class="t-c pb-4">
+                                <input class="form-check-input theme-control" type="checkbox" id="flexCheckDefault"
+                                    style="border-radius: 50%;" id="check" onclick="valiadate(this)">
+                                <label class="form-check-label text-theme ps-1 tc" for="flexCheckDefault">
+                                    I accept participation terms & conditions (<a href=""
+                                        class="text-theme text-decoration-none">View</a>).
+                                </label>
                             </div>
-                        </span>
-
-                        <div class="t-c pb-4">
-                            <input class="form-check-input theme-control" type="checkbox" id="flexCheckDefault"
-                                style="border-radius: 50%;" id="check" onclick="valiadate(this)">
-                            <label class="form-check-label text-theme ps-1 tc" for="flexCheckDefault">
-                                I accept participation terms & conditions (<a href=""
-                                    class="text-theme text-decoration-none">View</a>).
-                            </label>
-                        </div>
-                        <div class="flex-column justify-content-start">
-                            <input type="submit" class="form-control btn-submit" value="Register">
-                        </div>
+                            <div class="hidden-input d-none">
+                                <input type="text" name="h-input" value="{{packagedata.Package_price}}">
+                            </div>
+                            <div class="flex-column justify-content-start">
+                                <input type="submit" class="form-control btn-submit" value="Register">
+                            </div>
                     </form>
                 </div>
-
             </div>
+
+        </div>
         </div>
     </main>
     <script src="../static/js/bootstrap.js"></script>
     <script src="../static/js/index.js"></script>
     <script src="../static/js/booking.js"></script>
-    <script src="../static/css/mediaqury.css"></script>
+    <script src="../static/js/receipt.js"></script>
 </body>
 
 </html

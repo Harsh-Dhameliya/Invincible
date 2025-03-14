@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="../static/css/fonts.css">
     <link rel="stylesheet" href="../static/css/main.css">
     <!-- <link rel="stylesheet" href="../static/css/about.css"> -->
@@ -45,7 +46,7 @@
             <div class="logo elm-regular logo-font">
                 <a href="/">Invincible</a>
             </div>
-            <div class="menu  karla-regular ">
+            <div class="menu  karla-regular d-lg-flex d-none">
                 <a href="/">HOME</a>
                 <a href="/about-us">ABOUT US</a>
                 <a href="/events">EVENTS</a>
@@ -57,37 +58,7 @@
                     aria-controls="offcanvasRight"></i>
                 <!-- <button class="btn btn-primary">Toggle right offcanvas</button> -->
 
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                    aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <div class="offcanvaslogo elm-regular logo-font">
-                            <a href="/">Invincible</a>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-description">
-                        <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore the world
-                            in style and comfort. From hidden gems to iconic destinations, we tailor journeys to make
-                            every trip memorable."</p>
-                    </div>
-
-                    <div class="offcanvasmenu  karla-regular ">
-                        <h2><a href="/">HOME</a></h2>
-                        <h2><a href="/about-us">ABOUT US</a></h2>
-                        <h2><a href="/events">EVENTS</a></h2>
-                        <h2 class="active-m"><a href="/contact-us">CONTACT US</a></h2>
-
-                        <!-- <a href="">CONTACT US</a> -->
-                    </div>
-                    <div class="offcanvas-buttons">
-                        <div class="offcanvas-sign-in">
-                            <a href="/log-in">Sign-in</a>
-                        </div>
-                        <div class="offcanvas-sign-up">
-                            <a href="/registration">Sign-up</a>
-                        </div>
-                    </div>
-                </div>
+                {% include 'offcanvas.html'  %}
             </div>
 
         </nav>

@@ -1,3 +1,5 @@
+
+
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
 
@@ -22,10 +24,8 @@ class Customer(models.Model):
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
     
-    def __str__(self):
+    def _str_(self):
         return self.customer_name
 
     class Meta:
         db_table = 'customer'
-
-

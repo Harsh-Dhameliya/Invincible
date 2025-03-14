@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="../static/css/fonts.css">
     <link rel="stylesheet" href="../static/css/main.css">
     <!-- <link rel="stylesheet" href="../static/css/main_page.css"> -->
@@ -67,7 +68,7 @@
             <div class="logo elm-regular logo-font">
                 <a href="/">Invincible</a>
             </div>
-            <div class="menu  karla-regular ">
+            <div class="menu  karla-regular d-lg-flex d-none">
                 <a href="/">HOME</a>
                 <a href="/about-us">ABOUT US</a>
                 <a href="/events" class="active-m">EVENTS</a>
@@ -78,38 +79,7 @@
                 <i class="ri-menu-line" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight"></i>
                 <!-- <button class="btn btn-primary">Toggle right offcanvas</button> -->
-
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                    aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <div class="offcanvaslogo elm-regular logo-font">
-                            <a href="/">Invincible</a>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-description">
-                        <p>"Invincible Tours and Travels offers unforgettable experiences, letting you explore the world
-                            in style and comfort. From hidden gems to iconic destinations, we tailor journeys to make
-                            every trip memorable."</p>
-                    </div>
-
-                    <div class="offcanvasmenu  karla-regular ">
-                        <h2><a href="/">HOME</a></h2>
-                        <h2><a href="/about-us">ABOUT US</a></h2>
-                        <h2 class="active-m"><a href="/events">EVENTS</a></h2>
-                        <h2><a href="/contact-us">CONTACT US</a></h2>
-
-                        <!-- <a href="">CONTACT US</a> -->
-                    </div>
-                    <div class="offcanvas-buttons">
-                        <div class="offcanvas-sign-in">
-                            <a href="/log-in">Sign-in</a>
-                        </div>
-                        <div class="offcanvas-sign-up">
-                            <a href="/registration">Sign-up</a>
-                        </div>
-                    </div>
-                </div>
+                {% include 'offcanvas.html' %}
             </div>
         </nav>
         <div class="first-page-contant  event-title elm-regular">
@@ -119,39 +89,44 @@
     </section>
 
     <main class="main-packages  container-flued ">
-        
+
         {% for category in allcategory %}
-        {% comment %} {% if category.category_name == package.category_name %} {% endcomment %}
+
         <section class="all-packages container-flued">
             <div class="all-packages-heading">
-                <h2 class="elm-regular m-0">{{category.category_name}} Packages</h2>
+                <h2 class="elm-regular m-0">{{category.category_name}} Tours Packages</h2>
                 <p class="m-lg-0">Explore Our Packages</p>
             </div>
+
             <div class="show-package">
                 <div class="packages">
                     {% for package in allpackage %}
+                    {% if package.category_id == category.id %}
                     <a href="/description/{{package.Slug}}" class="text-decoration-none text-white">
-                        <div class="pkg-card" >
+                        <div class="pkg-card">
                             <div class="img" style="background-image: url('{{ package.Package_image1.url }}');"></div>
-                            <div class="pkg-desc" > 
+                            <div class="pkg-desc">
                                 <div class="pkg-title">
                                     {{package.Package_name}}
                                 </div>
                                 <div class="pkg-details pt-2 ps-1 d-flex gap-4">
-                                    <span class="price">From <i class="fa fa-rupee"></i> {{package.Package_price}}/-</span>
-                                    <span class="days"><i class="fa fa-calendar"></i> {{package.Total_days}} days / {{package.Total_nights}} nights</span>
-                                    {% comment %} <p>{{package.category}} {{ category.category_name}}</p>z` ` {% endcomment %}
+                                    <span class="price">From <i class="fa fa-rupee"></i>
+                                        {{package.Package_price}}/-</span>
+                                    <span class="days"><i class="fa fa-calendar"></i> {{package.Total_days}} days /
+                                        {{package.Total_nights}} nights</span>
+
                                 </div>
                             </div>
                         </div>
                     </a>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
         </section>
-        {% comment %} {% endif %} {% endcomment %}
+
         {% endfor %}
-        {% comment %} <section class="all-packages container-flued">
+        <!-- <section class="all-packages container-flued">
             <div class="all-packages-heading">
                 <h2 class="elm-regular m-0">Gujarat Packages</h2>
                 <p class="m-lg-0">Explore Our Packages</p>
@@ -310,7 +285,7 @@
                     </a>
                 </div>
             </div>
-        </section> {% endcomment %}
+        </section>  -->
     </main>
 
     <section>

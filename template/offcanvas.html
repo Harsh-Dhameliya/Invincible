@@ -1,0 +1,53 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <div class="offcanvaslogo elm-regular logo-font d-flex align-items-center justify-content-between w-100">
+            <a href="/">Invincible</a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+    </div>
+    <div class="offcanvas-description ps-4 d-flex flex-column gap-2 justify-content-center ">
+        <div class="offcanvasmenu d-flex flex-column gap-3  karla-regular ">
+            <span class="d-flex d-lg-none flex-column gap-3 ">
+                <span class="menu-contant d-flex align-items-center gap-4">
+                    <i class="uil uil-home text-black-50"></i></i><a href="/" class="text-black">Home</a>
+                </span>
+                <span class="menu-contant d-flex align-items-center gap-4">
+                    <i class="uil uil-building text-black-50"></i><a href="/about-us" class="text-black ">About us</a>
+                </span>
+                <span class="menu-contant d-flex align-items-center gap-4">
+                    <i class="uil uil-mountains-sun text-black-50"></i><a href="/events" class="text-black">Events</a>
+                </span>
+                <span class="menu-contant d-flex align-items-center gap-4">
+                    <i class="uil uil-phone text-black-50"></i><a href="/contact-us" class="text-black">Contact us</a>
+                </span>
+            </span>
+            <span class="menu-contant d-flex align-items-center gap-4">
+                {% if 'customer_id' in request.session %}
+                <i class="uil uil-power text-black-50"></i><a href="/log-out" class="">Log-out</a>
+                {% else %}
+                <i class="uil uil-user text-black-50"></i><a href="/log-in">log-in</a>
+                {% endif %}
+            </span>
+            <span class="menu-contant d-flex align-items-center gap-4 ">
+                {% if 'customer_id' not in request.session %}
+                <i class="uil uil-document-layout-left text-black-50"></i><a href="/registration">Registration
+                </a>
+                {% endif %}
+
+            </span>
+        </div>
+    </div>
+    <hr>
+    <div class="offcanvas-footer">
+        <div class="off-footer-hading">
+            CONTACT
+        </div>
+        <div class="off-footer-details d-flex flex-column gap-1 pt-3 ps-2">
+            <span class="contact-1 text-black d-flex align-items-center gap-3"><i
+                    class="uil uil-phone text-black-50"></i> +91 9867895876</span>
+            <sapn class="contact-2 text-black d-flex align-items-center gap-3"><i
+                    class="uil uil-phone text-black-50"></i> +91 7896879878</sapn>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+LOGIN_URL = '/log-in/'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     'hotel',
     'transportation',
     'guide',
-    'schedule',
-    'tinymce',
+    'booking',
+    # 'tinymce',
    
 ]
+
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
 MIDDLEWARE = [
@@ -125,6 +126,9 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -144,6 +148,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS  = [BASE_DIR , "static"]
 
 import os
+# import sys
+# PROJECT_ROOT = os.path.normpath(os.path.dirname("static"))
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# STATIC_URL = '/static/'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

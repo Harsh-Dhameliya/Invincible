@@ -21,8 +21,16 @@
   .carousel-item {
     width: 217%;
   }
-  .offcanvasmenu
-  {
+  .offcanvasmenu {
+    display: block;
+  }
+  .receipt-heading {
+    flex-direction: column;
+  }
+  .receipt-heading h2 {
+    text-align: center;
+  }
+  .receipt {
     display: block;
   }
 
@@ -32,9 +40,9 @@
     justify-content: center;
     align-items: center;
   } */
- .footer-contant {
+  .footer-contant {
     width: 100%;
-  } 
+  }
   /* .quick-links {
     margin-top: 20px;
     text-align: center;
@@ -49,35 +57,29 @@
   .address {
     margin-top: 0px;
   } */
-  .service
-  {
+  .service {
     flex-direction: column;
   }
-  .text-contant , .service-video
-  {
+  .text-contant,
+  .service-video {
     width: 100%;
   }
-  .pkg-container img 
-  {
+  .pkg-container img {
     width: 160px;
   }
   .service-inner {
-  display: block;
+    display: block;
   }
   .description {
-  width: 100%;
+    width: 100%;
   }
-  .services 
-  {
+  .services {
     width: 70%;
     margin: 0px auto;
   }
-  .includes-services
-  {
+  .includes-services {
     justify-content: space-between;
   }
-
-
 }
 @media (max-width: 600px) {
   .carousel-item {
@@ -91,8 +93,7 @@
     height: 200px;
     width: 100%;
   }
-  .half-card
-  {
+  .half-card {
     width: 100%;
   }
 
@@ -102,72 +103,53 @@
     width: 100%;
     /* margin-left: 10px; */
   }
-   .first-card,
-  .second-card, .single-card {
+  .first-card,
+  .second-card,
+  .single-card {
     height: 200px;
     width: 100%;
   }
-  .pkg-container img 
-  {
+  .pkg-container img {
     width: 100px;
   }
-  .pkg-container a:nth-child(4){
+  .pkg-container a:nth-child(4) {
     display: none;
   }
-  .states
-  {
-      flex-wrap: wrap;
-      
+  .states {
+    flex-wrap: wrap;
   }
-  .s-card
-  {
+  .s-card {
     width: 50%;
     height: 33.33%;
   }
-  .bg-drop
-  {
+  .bg-drop {
     transform: translateY(-150px);
   }
 
-  .includes-services
-  {
+  .includes-services {
     display: block;
   }
-  .include-items
-  {
+  .include-items {
     width: 100%;
   }
-  
 }
-@media  (max-width: 480px){
-  .pkg-container img 
-  {
+@media (max-width: 480px) {
+  .pkg-container img {
     width: 7rem;
   }
-  .tag-line 
-  {
+  .tag-line {
     font-size: 50px;
   }
   .carousel-item {
     width: 100%;
     height: 650px;
   }
-  .carousel-item  img{
+  .carousel-item img {
     object-fit: cover;
-    margin: 0px 
-    auto;
+    margin: 0px auto;
     padding: auto;
   }
 }
-
-
-
-
-
-
-
-
-
 
 /* /* Default (Desktop First) Styles Already Present */
 
