@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'transportation',
     'guide',
     'booking',
-    # 'tinymce',
+
    
 ]
 

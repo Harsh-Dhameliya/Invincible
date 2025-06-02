@@ -16,7 +16,7 @@ function change_image(src) {
 
 
 function handleToast() {
-  console.log("haaaaa");
+  // console.log("haaaaa");
   
     const toast = document.getElementById("toast")
     toast.classList.remove("d-block")

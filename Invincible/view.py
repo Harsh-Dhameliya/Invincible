@@ -81,7 +81,7 @@ def Registration(request):
         otp = generate_otp()
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
-        server.login("harshdhameliya018@gmail.com", "twvc famp dvwj slzc")
+        server.login("harshdhameliya018@gmail.com", "axnn gmvd horm jvpt")
         msg = EmailMessage()
         msg["Subject"] = "OTP Verification"
         msg["From"] = "harshdhameliya018@gmail.com"
