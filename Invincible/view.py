@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-def Home(request):
+def Home(request): 
     review = Review.objects.all()
     alldata = {"allreview" : review}
     # expiry_time = request.session.get_expiry_age()
