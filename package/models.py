@@ -19,7 +19,7 @@ class Package(models.Model):
         on_delete=models.CASCADE,
         related_name='Package',
         default=None
-    )
+    )   
 
     Transportation_type = models.ForeignKey(
         'transportation.Transportation',  # Correct reference to the Customer model

@@ -8,8 +8,8 @@ class Customer(models.Model):
     customer_name = models.CharField(max_length=20, default=None)
     customer_email = models.EmailField(unique=True, default=None)
     customer_mobile = models.CharField(max_length=10, default=None)
-    password = models.CharField(max_length=128)  # Ensure it's large enough for hashed passwords
-
+    password = models.CharField(max_length=128)   
+    
     def set_password(self, raw_password):
         """Encrypt and set the password."""
         self.password = make_password(raw_password)

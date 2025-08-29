@@ -29,10 +29,7 @@ def AboutUs(request):
 def Packages(request):
     
     package = Package.objects.all()
-    # query = """SELECT category_category.id, category_category.category_name 
-    # FROM category_category  
-    # INNER JOIN package_package ON category_category.id = package_package.category_id;"""
-    # category = Category.objects.raw(query)
+    
 
     category_ids = package.values_list('category_id', flat=True).distinct()
     categories = Category.objects.filter(id__in=category_ids)
@@ -131,7 +128,7 @@ def OTP(request):
         if u_otp == temp_data.get('otp'):
             # Create a new customer
             new_customer = Customer(
-                customer_name=temp_data['cname'],
+                customer_name=temp_data['cname'],   
                 customer_email=temp_data['email'],
                 customer_mobile=temp_data['mobile']
             )
@@ -168,9 +165,8 @@ def Login(request):
 
     return render(request, "login.html")
 
-def Logout(request):
+def Logout(request):    
     if 'customer_id' in request.session:
-        print("user log-out")
         del request.session['customer_id']  # Remove customer ID from session
     messages.success(request, "Logged out successfully!")
     return redirect('login')

@@ -54,7 +54,7 @@ if (data.name === "password" || data.id === "r-form") {
       if (password.value.length >= 8 && password.value.length <= 12  && passwordPattern ) 
         {
         passError.innerHTML = ""
-        password.classList.remove("is-invalid");
+        password.classList.remove("is-invalid");      
         password.classList.add("is-valid");
 
       } else {

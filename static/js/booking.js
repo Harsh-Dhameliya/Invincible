@@ -59,23 +59,23 @@ let maxdate = (abc) => {
 function valiadate(abc) {
   let status = true;
 
-  if (abc.name === "fname" || abc.id === "myForm") {
-    const namePattern = /^[a-zA-Z]+$/;
-    let fname = document.getElementsByName("fname");
+    if (abc.name === "fname" || abc.id === "myForm") {
+      const namePattern = /^[a-zA-Z]+$/;
+      let fname = document.getElementsByName("fname");
 
-    // console.log(fname.length);
+      // console.log(fname.length);
 
-    for (i = 0; i < fname.length; i++) {
-      if (fname[i].value.length >= 0 && namePattern.test(fname[i].value)) {
-        fname[i].classList.remove("is-invalid");
-        fname[i].classList.add("is-valid");
-      } else {
-        fname[i].classList.remove("is-valid");
-        fname[i].classList.add("is-invalid");
-        status = false;
+      for (i = 0; i < fname.length; i++) {
+        if (fname[i].value.length >= 0 && namePattern.test(fname[i].value)) {
+          fname[i].classList.remove("is-invalid");
+          fname[i].classList.add("is-valid");
+        } else {
+          fname[i].classList.remove("is-valid");
+          fname[i].classList.add("is-invalid");
+          status = false;
+        }
       }
     }
-  }
 
   if (abc.name === "lname" || abc.id === "myForm") {
     const namePattern = /^[a-zA-Z]+$/;
